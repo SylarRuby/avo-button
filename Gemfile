@@ -67,3 +67,5 @@ gem "view_component", "~> 3.21"
 gem "tailwindcss-ruby", "~> 4.1"
 
 gem "tailwindcss-rails", "~> 4.2"
+
+gem "heroicons-rails", "~> 1.2"

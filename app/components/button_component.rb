@@ -1,9 +1,12 @@
 class ButtonComponent < ViewComponent::Base
-  def initialize(size: :lg, label: 'Save theme', disabled: false, theme: nil)
+  include Heroicons::IconsHelper
+
+  def initialize(size: :lg, label: 'Save theme', disabled: false, theme: nil, icon: nil)
     @size = size
     @label = label
     @disabled = disabled
     @theme = theme
+    @icon = icon
   end
 
   private
@@ -16,6 +19,17 @@ class ButtonComponent < ViewComponent::Base
       'w-[16em] h-[4em] text-lg font-semibold rounded-[1rem]'
     else # large
       'w-[20em] h-[5em] text-2xl font-bold rounded-[1.25rem]'
+    end
+  end
+
+  def icon_classes
+    case @size
+    when :sm
+      'size-4'
+    when :md
+      'size-6' 
+    else # large  
+      'size-10'
     end
   end
 
