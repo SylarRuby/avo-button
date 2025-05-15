@@ -1,24 +1,64 @@
-# README
+# Avo Design
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A modern Rails 8 application built with Hotwire, View Components, and Tailwind CSS.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+* Ruby version: See `.ruby-version` file
+* MySQL 8.0 or higher
 
-* System dependencies
+## System Dependencies
 
-* Configuration
+* Docker (optional, for containerized development)
+* MySQL server
 
-* Database creation
+## Setup
 
-* Database initialization
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   bundle install
+   ```
+3. Set up the database:
+   ```bash
+   rails db:create db:migrate
+   ```
+4. Start the development server:
+   ```bash
+   ./bin/dev
+   ```
 
-* How to run the test suite
+## Development
 
-* Services (job queues, cache servers, search engines, etc.)
+The application uses:
+* Hotwire (Turbo and Stimulus) for dynamic frontend interactions
+* View Components for reusable UI components
+* Tailwind CSS (via tailwindcss-rails gem) for styling
+* Heroicons for icons
 
-* Deployment instructions
+## Testing
 
-* ...
+Run the test suite:
+```bash
+rails test
+```
+
+To run specific component tests:
+```bash
+rails test test/components/button_component_test.rb
+```
+
+## Deployment
+
+This application can be deployed using Kamal. See the `.kamal` directory for deployment configuration.
+
+## Docker Support
+
+A Dockerfile is included for containerized development and deployment. Build the image with:
+```bash
+docker build -t avo-design .
+```
+
+## License
+
+[Add your license information here]
