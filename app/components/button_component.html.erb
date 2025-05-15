@@ -1,9 +1,9 @@
 <div data-controller="button" data-button-disabled-value="<%= @disabled %>">
   <button 
     data-button-target="button"
-    class="group cursor-pointer relative overflow-hidden flex items-center justify-center bg-black text-white font-semibold transition-all duration-200
-      hover:bg-gray-900
-      active:scale-95 active:bg-gray-800
+    class="group cursor-pointer relative overflow-hidden flex items-center justify-center text-white font-semibold transition-all duration-200
+    <%= theme_container_classes %>
+      active:scale-95
       focus:ring-4 focus:ring-white/20 focus:outline-none
       <%= size_classes %>"
     role="button"
@@ -20,9 +20,8 @@
       <%= overlay_top %>">
     </div>
 
-    <div class="<%= size_inners %> flex items-center justify-center bg-gradient-to-t absolute z-10 from-white/30 to-[oklch(0.31 0 0)] bg-black p-1 flex-1 transition-all duration-200
-      hover:from-white/40 hover:to-[oklch(0.35 0 0)]
-      active:from-white/20 active:to-[oklch(0.25 0 0)]
+    <div class="<%= size_inners %> flex items-center justify-center bg-gradient-to-t absolute z-10 from-white/30 to-[oklch(0.31 0 0)] p-1 flex-1 transition-all duration-200
+      <%= gradient_background_classes %>
       <%= gradient_radius %>
       <%= gradient_top %>">
       <span><%= @label %></span>

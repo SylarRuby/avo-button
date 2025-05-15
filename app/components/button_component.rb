@@ -1,8 +1,9 @@
 class ButtonComponent < ViewComponent::Base
-  def initialize(size: :lg, label: 'Save theme', disabled: false)
+  def initialize(size: :lg, label: 'Save theme', disabled: false, theme: nil)
     @size = size
     @label = label
     @disabled = disabled
+    @theme = theme
   end
 
   private
@@ -15,6 +16,28 @@ class ButtonComponent < ViewComponent::Base
       'w-[16em] h-[4em] text-lg font-semibold rounded-[1rem]'
     else # large
       'w-[20em] h-[5em] text-2xl font-bold rounded-[1.25rem]'
+    end
+  end
+
+  def theme_container_classes
+    case @theme
+    when :primary
+      'bg-blue-600'
+    when :secondary
+      'bg-blue-500'
+    else 
+      'bg-black'
+    end
+  end
+
+  def gradient_background_classes
+    case @theme
+    when :primary
+      "hover:from-blue-400/30 hover:to-[oklch(0.65 0.15 240)] active:from-blue-400/20 active:to-[oklch(0.6 0.15 240)] bg-blue-600"
+    when :secondary
+      "hover:from-blue-300/20 hover:to-[oklch(0.4 0.1 240)] active:from-blue-300/15 active:to-[oklch(0.35 0.1 240)] bg-blue-500"
+    else
+      "hover:from-white/40 hover:to-[oklch(0.35 0 0)] active:from-white/20 active:to-[oklch(0.25 0 0)] hover:bg-gray-900 active:bg-gray-800 bg-black"
     end
   end
 
